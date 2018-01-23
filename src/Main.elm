@@ -25,7 +25,7 @@ type alias Model =
 model : Model
 model =
     { people = [ "Alice", "Jill", "Joan", "Joanne", "Zoe" ]
-    , results = [ "Jill", "Joan", "Joanne" ]
+    , results = [ "Joan", "Joanne" ]
     , filter = "Jo"
     }
 

@@ -26,7 +26,7 @@ model : Model
 model =
     { people = [ "Alice", "Jill", "Joan", "Joanne", "Zoe" ]
     , results = [ "Jill", "Joan", "Joanne" ]
-    , filter = "J"
+    , filter = "Jo"
     }
 
 

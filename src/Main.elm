@@ -11,6 +11,8 @@ main =
 
 
 -- MODEL
+-- type alias Model
+--   {filtered = Filtered}
 
 
 type alias Model =
@@ -26,6 +28,11 @@ model =
     , results = [ "Jill", "Joan", "Joanne" ]
     , filter = "J"
     }
+
+
+type Status
+    = NoStatus
+    | FilterSet
 
 
 
@@ -53,16 +60,15 @@ update msg model =
 view : Model -> Html Msg
 view model =
     div []
-        [ label [] [ text " Filter: " ]
+        [ p [] [ text "Filtering is 'case-sensative.'" ]
+        , label [] [ text " Filter: " ]
         , input [ placeholder model.filter, onInput Filter ] []
-
-        -- , button [ onClick Add ] [ text "Add New" ]
-        , p [] [ text "Entries :" ]
-        , ul [] (List.map viewEntry model.people)
         , p [] [ text "Filter: " ]
         , p [] [ text model.filter ]
         , p [] [ text "Filtered:" ]
         , ul [] (List.map viewEntry model.results)
+        , p [] [ text "Entries :" ]
+        , ul [] (List.map viewEntry model.people)
         ]
 
 

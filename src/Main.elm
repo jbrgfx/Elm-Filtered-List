@@ -21,14 +21,14 @@ main =
             [ headerArea
             , mainColumns
                 { left =
-                    [ paragraph [] [ text "All People:" ]
-                    , paragraph [ paddingLeft 18 ] (List.map viewEntry model.people)
+                    [ paragraph [ paddingLeft 20 ] [ text "All People:" ]
+                    , paragraph [ paddingLeft 40, Background.color lightGrey ] (List.map viewEntry model.people)
                     ]
                 , right =
                     [ paragraph [] [ text "Filter:" ]
-                    , paragraph [ paddingBottom 20 ] [ text model.filter ]
-                    , paragraph [] [ text "Filtered Results:" ]
-                    , paragraph [ paddingLeft 18 ] (List.map viewEntry model.results)
+                    , paragraph [ paddingLeft 20, Background.color lightGrey ] [ text model.filter ]
+                    , paragraph [ paddingTop 40 ] [ text "Filtered Results:" ]
+                    , paragraph [ paddingLeft 18, Background.color lightGrey ] (List.map viewEntry model.results)
                     ]
                 }
             , footerArea
@@ -127,16 +127,16 @@ paddingRight n =
     paddingEach { right = n, left = 0, top = 0, bottom = 0 }
 
 
-paddingTop pxs =
-    paddingEach { bottom = 0, top = pxs, left = 0, right = 0 }
+paddingTop n =
+    paddingEach { bottom = 0, top = n, left = 0, right = 0 }
 
 
 
 {- credit: https://github.com/opsb/cv-elm/blob/master/src/Extra/Element.elm -}
 
 
-paddingBottom pxs =
-    paddingEach { bottom = pxs, top = 0, left = 0, right = 0 }
+paddingBottom n =
+    paddingEach { bottom = n, top = 0, left = 0, right = 0 }
 
 
 

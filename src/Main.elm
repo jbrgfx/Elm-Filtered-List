@@ -9,12 +9,6 @@ main =
     Html.beginnerProgram { model = model, view = view, update = update }
 
 
-
--- MODEL
--- type alias Model
---   {filtered = Filtered}
-
-
 type alias Model =
     { people : List String
     , results : List String
@@ -24,7 +18,7 @@ type alias Model =
 
 model : Model
 model =
-    { people = [ "Alice", "Jill", "Joan", "Joanne", "Zoe" ]
+    { people = [ "Alice", "Jane", "Jill", "Joan", "Joanne", "Zoe" ]
     , results = [ "Joan", "Joanne" ]
     , filter = "Jo"
     }

@@ -20,16 +20,13 @@ main =
             [ headerArea
             , mainColumns
                 { left =
-                    [ -- overview
-                      -- , secondDropCap
-                      paragraph [] [ text "Filter:" ]
+                    [ paragraph [] [ text "Filter:" ]
                     , paragraph [ paddingBottom 20 ] [ text model.filter ]
                     , paragraph [] [ text "Filered Results:" ]
                     , paragraph [ paddingLeft 18 ] (List.map viewEntry model.results)
                     ]
                 , right =
-                    [ -- firstDropCap
-                      paragraph [] [ text "All People:" ]
+                    [ paragraph [] [ text "All People:" ]
                     , paragraph [ paddingLeft 18 ] (List.map viewEntry model.people)
                     ]
                 }
@@ -73,23 +70,6 @@ update msg model =
                 | results = List.filter (String.contains filter) model.people
                 , filter = filter
             }
-
-
-
--- VIEW
--- view : Model -> Html Msg
--- view model =
--- div []
---     [ p [] [ text "Filtering is 'case-sensative.'" ]
---     , label [] [ text " Filter: " ]
---     , input [ placeholder model.filter, onInput Filter ] []
---     , p [] [ text "Filter: " ]
---     , p [] [ text model.filter ]
---     , p [] [ text "Filtered:" ]
---     , ul [] (List.map viewEntry model.results)
---     , p [] [ text "Entries :" ]
---     , ul [] (List.map viewEntry model.people)
---     ]
 
 
 mainColumns { left, right } =

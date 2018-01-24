@@ -20,14 +20,14 @@ main =
             [ headerArea
             , mainColumns
                 { left =
+                    [ paragraph [] [ text "All People:" ]
+                    , paragraph [ paddingLeft 18 ] (List.map viewEntry model.people)
+                    ]
+                , right =
                     [ paragraph [] [ text "Filter:" ]
                     , paragraph [ paddingBottom 20 ] [ text model.filter ]
                     , paragraph [] [ text "Filered Results:" ]
                     , paragraph [ paddingLeft 18 ] (List.map viewEntry model.results)
-                    ]
-                , right =
-                    [ paragraph [] [ text "All People:" ]
-                    , paragraph [ paddingLeft 18 ] (List.map viewEntry model.people)
                     ]
                 }
             , footerArea

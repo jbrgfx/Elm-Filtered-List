@@ -1,12 +1,10 @@
 
 # Elm list filtering experiment (using a default state)
 
-The form displays a result based on a default filter to illustrate to the end-user how the filter works, hints on filtering on how to use the filter or an error with hints on what to try next.
+The form displays a result based on a default filter to illustrate to the end-user how the filter works.
 
-"[Making Impossible States Impossible](https://www.youtube.com/watch?v=IcgmSRJHu_8)," by Richard Feldman
-recorded at elm-conf 2016
+View uses [stylish-elephants](http://package.elm-lang.org/packages/mdgriffith/stylish-elephants/4.0.0), the experimental style-elements package.
 
-Feldman's presentation inspired an [article on Medium](https://medium.com/elm-shorts/how-to-make-impossible-states-impossible-c12a07e907b5) by the same name, by Wouter In t Velt.
 
 
 
@@ -17,4 +15,4 @@ Then generate it:
     elm reactor
 
 And view it:
-    localhost:8000/Main.elm
+    localhost:8000/src/Main.elm

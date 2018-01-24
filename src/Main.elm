@@ -20,12 +20,17 @@ main =
             [ headerArea
             , mainColumns
                 { left =
-                    [-- overview
-                     -- , secondDropCap
+                    [ -- overview
+                      -- , secondDropCap
+                      paragraph [] [ text "Filter:" ]
+                    , paragraph [ paddingBottom 20 ] [ text model.filter ]
+                    , paragraph [] [ text "Filered Results:" ]
+                    , paragraph [ paddingLeft 18 ] (List.map viewEntry model.results)
                     ]
                 , right =
                     [ -- firstDropCap
-                      paragraph [] (List.map viewEntry model.people)
+                      paragraph [] [ text "All People:" ]
+                    , paragraph [ paddingLeft 18 ] (List.map viewEntry model.people)
                     ]
                 }
             , footerArea

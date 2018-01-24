@@ -42,15 +42,6 @@ type alias Model =
     }
 
 
-type alias Text msg =
-    { onChange : Maybe (String -> msg)
-    , text : String
-    , placeholder : Maybe (Input.Placeholder msg)
-    , label : Input.Label msg
-    , notice : Maybe (Input.Notice msg)
-    }
-
-
 model : Model
 model =
     { people = [ "Alice", "Jane", "Jill", "Joan", "Joanne", "Zoe" ]
@@ -177,10 +168,6 @@ elmlogo =
             ]
             { description = "the Elm Language logo", src = "elm_logo.png" }
         ]
-
-
-
--- viewEntry : String -> Html Msg
 
 
 viewEntry entry =

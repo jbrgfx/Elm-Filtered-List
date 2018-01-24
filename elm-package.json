@@ -1,7 +1,7 @@
 {
     "version": "1.0.0",
-    "summary": "Filtered List",
-    "repository": "https://github.com/user/project.git",
+    "summary": "Filtered List using default state and stylish-elephants",
+    "repository": "https://github.com/jbrgfx/Elm-Filtered-List.git",
     "license": "MIT",
     "source-directories": [
         "src"

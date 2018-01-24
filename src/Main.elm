@@ -27,7 +27,7 @@ main =
                 , right =
                     [ paragraph [] [ text "Filter:" ]
                     , paragraph [ paddingBottom 20 ] [ text model.filter ]
-                    , paragraph [] [ text "Filered Results:" ]
+                    , paragraph [] [ text "Filtered Results:" ]
                     , paragraph [ paddingLeft 18 ] (List.map viewEntry model.results)
                     ]
                 }
@@ -39,6 +39,15 @@ type alias Model =
     { people : List String
     , results : List String
     , filter : String
+    }
+
+
+type alias Text msg =
+    { onChange : Maybe (String -> msg)
+    , text : String
+    , placeholder : Maybe (Input.Placeholder msg)
+    , label : Input.Label msg
+    , notice : Maybe (Input.Notice msg)
     }
 
 

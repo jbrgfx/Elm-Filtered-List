@@ -21,14 +21,23 @@ main =
             [ headerArea
             , mainColumns
                 { left =
-                    [ paragraph [ paddingLeft 20 ] [ text "All People:" ]
-                    , paragraph [ paddingLeft 40, Background.color lightGrey ] (List.map viewEntry model.people)
+                    [ paragraph [ paddingLeft 20 ]
+                        [ text "All People:" ]
+                    , paragraph
+                        [ paddingLeft 40
+                        , Background.color lightGrey
+                        ]
+                        (List.map viewPeople model.people)
                     ]
                 , right =
-                    [ paragraph [] [ text "Filter:" ]
-                    , paragraph [ paddingLeft 20, Background.color lightGrey ] [ text model.filter ]
-                    , paragraph [ paddingTop 40 ] [ text "Filtered Results:" ]
-                    , paragraph [ paddingLeft 18, Background.color lightGrey ] (List.map viewEntry model.results)
+                    [ inputForm
+                    , paragraph [ paddingTop 20 ]
+                        [ text "Filtered Results:" ]
+                    , paragraph
+                        [ paddingLeft 18
+                        , Background.color lightGrey
+                        ]
+                        (List.map viewPeople model.filtered)
                     ]
                 }
             , footerArea
@@ -37,16 +46,16 @@ main =
 
 type alias Model =
     { people : List String
-    , results : List String
+    , filtered : List String
     , filter : String
     }
 
 
 model : Model
 model =
-    { people = [ "Alice", "Jane", "Jill", "Joan", "Joanne", "Zoe" ]
-    , results = [ "Joan", "Joanne" ]
-    , filter = "Jo"
+    { people = [ "Alice", "Anne", "Jane", "Joan", "Joanne", "Zane", "Zoe" ]
+    , filtered = [ "Anne", "Jane", "Joanne", "Zane" ]
+    , filter = "ne"
     }
 
 
@@ -68,7 +77,7 @@ update msg model =
     case msg of
         Filter filter ->
             { model
-                | results = List.filter (String.contains filter) model.people
+                | filtered = List.filter (String.contains filter) model.people
                 , filter = filter
             }
 
@@ -88,6 +97,18 @@ mainColumns { left, right } =
             [ paddingLeft gutter ]
             right
         ]
+
+
+inputForm : Element Msg
+inputForm =
+    Input.text
+        [ Border.color Color.black ]
+        { onChange = Just Filter
+        , text = "ne"
+        , placeholder = Nothing
+        , label = Input.labelAbove [] (text "Filter")
+        , notice = Nothing
+        }
 
 
 
@@ -170,8 +191,9 @@ elmlogo =
         ]
 
 
-viewEntry entry =
-    paragraph [] [ Element.text entry ]
+viewPeople entry =
+    paragraph []
+        [ Element.text entry ]
 
 
 footerArea =

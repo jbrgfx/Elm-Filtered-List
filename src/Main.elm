@@ -21,17 +21,21 @@ main =
             [ headerArea
             , mainColumns
                 { left =
-                    [ paragraph [ paddingLeft 20 ]
+                    [ paragraph
+                        [ paddingLeft 20 ]
                         [ text "All People:" ]
                     , paragraph
                         [ paddingLeft 40
+                        , height (px 180)
                         , Background.color lightGrey
                         ]
                         (List.map viewPeople model.people)
                     ]
                 , right =
                     [ inputForm
-                    , paragraph [ paddingTop 20 ]
+                    , paragraph
+                        [ paddingTop 20
+                        ]
                         [ text "Filtered Results:" ]
                     , paragraph
                         [ paddingLeft 18
@@ -57,11 +61,6 @@ model =
     , filtered = [ "Anne", "Jane", "Joanne", "Zane" ]
     , filter = "ne"
     }
-
-
-type Status
-    = NoStatus
-    | FilterSet
 
 
 
@@ -106,7 +105,7 @@ inputForm =
         { onChange = Just Filter
         , text = "ne"
         , placeholder = Nothing
-        , label = Input.labelAbove [] (text "Filter")
+        , label = Input.labelAbove [] (text "Filter People:")
         , notice = Nothing
         }
 

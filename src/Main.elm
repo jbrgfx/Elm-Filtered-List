@@ -1,7 +1,7 @@
 module Main exposing (..)
 
-import Color exposing (..)
-import Element exposing (..)
+import Color exposing (darkBlue, lightGrey, white)
+import Element exposing (Element, alignBottom, alignLeft, centerY, column, height, image, layout, newTabLink, padding, paddingEach, paragraph, px, row, text, width)
 import Element.Background as Background
 import Element.Border as Border
 import Element.Events as Events

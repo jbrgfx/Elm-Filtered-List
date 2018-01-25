@@ -110,7 +110,7 @@ inputForm =
         { onChange = Just Filter
         , text = model.filter
         , placeholder = Nothing
-        , label = Input.labelAbove [] (text "Filter People:")
+        , label = Input.labelAbove [] (text "Filter is case-sensitive:")
         , notice = Nothing
         }
 

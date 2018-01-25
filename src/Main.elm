@@ -76,10 +76,12 @@ update : Msg -> Model -> Model
 update msg model =
     case msg of
         Filter filter ->
-            { model
+            ( { model
                 | filtered = List.filter (String.contains filter) model.people
                 , filter = filter
-            }
+              }
+            , Cmd.none
+            )
 
 
 mainColumns { left, right } =

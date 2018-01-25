@@ -7,6 +7,7 @@ import Element.Border as Border
 import Element.Events as Events
 import Element.Font as Font
 import Element.Input as Input
+import Html
 
 
 main =
@@ -103,7 +104,7 @@ inputForm =
     Input.text
         [ Border.color Color.black ]
         { onChange = Just Filter
-        , text = "ne"
+        , text = model.filter
         , placeholder = Nothing
         , label = Input.labelAbove [] (text "Filter People:")
         , notice = Nothing

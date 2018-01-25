@@ -11,6 +11,10 @@ import Html
 
 
 main =
+    Html.beginnerProgram { model = model, view = view, update = update }
+
+
+view model =
     Element.layout
         [ Background.color white
         , width (px 900)

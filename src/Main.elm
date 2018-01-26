@@ -17,7 +17,7 @@ main =
 type alias Model =
     { people : List String
     , filtered : List String
-    , filter : String
+    , filterTerm : String
     }
 
 
@@ -25,7 +25,7 @@ initialModel : Model
 initialModel =
     { people = [ "Alice", "Anne", "Jane", "Joan", "Joanne", "Zane", "Zoe" ]
     , filtered = [ "Anne", "Jane", "Joanne", "Zane" ]
-    , filter = "ne"
+    , filterTerm = "ne"
     }
 
 
@@ -40,10 +40,10 @@ type Msg
 update : Msg -> Model -> Model
 update msg model =
     case msg of
-        Filter filter ->
+        Filter filterTerm ->
             { model
-                | filtered = List.filter (String.contains filter) model.people
-                , filter = filter
+                | filtered = List.filter (String.contains filterTerm) model.people
+                , filterTerm = filterTerm
             }
 
 
@@ -71,6 +71,8 @@ view model =
                     ]
                 , right =
                     [ inputForm
+
+                    -- , validateFilter initialModel
                     , paragraph
                         [ paddingTop 20
                         ]
@@ -84,6 +86,20 @@ view model =
                 }
             , footerArea
             ]
+
+
+
+-- validateFilter initialModel =
+--     let
+--         message =
+--             if Filter == "" then
+--                 "❌ No filter. Try adding on"
+--             else
+--                 "✅ Filter is set"
+--     in
+--     row []
+--         -- [ text message |> Debug.log "update" ]
+--         [ text message ]
 
 
 mainColumns { left, right } =
@@ -119,7 +135,7 @@ inputForm =
                 )
         , onChange = Just Filter
         , placeholder = Nothing
-        , text = initialModel.filter
+        , text = initialModel.filterTerm
         }
 
 

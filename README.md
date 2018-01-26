@@ -7,10 +7,11 @@ View uses [stylish-elephants](http://package.elm-lang.org/packages/mdgriffith/st
 
 
 
+You need Elm 18 installed.
 
 Clone this repo.
 
-Then generate it:
+Then generate it from within the new project's root directory using:
 
     elm reactor
 

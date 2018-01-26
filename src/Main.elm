@@ -107,7 +107,6 @@ inputForm : Element Msg
 inputForm =
     Input.text
         [ Border.color Color.black
-        , alignBottom
         ]
         { label = Input.labelLeft [] (text "Filter:")
         , notice =

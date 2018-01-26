@@ -106,8 +106,10 @@ mainColumns { left, right } =
 inputForm : Element Msg
 inputForm =
     Input.text
-        [ Border.color Color.black ]
-        { label = Input.labelAbove [] (text "Filter:")
+        [ Border.color Color.black
+        , alignBottom
+        ]
+        { label = Input.labelLeft [] (text "Filter:")
         , notice =
             Just
                 (Input.warningBelow

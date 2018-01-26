@@ -11,46 +11,7 @@ import Html
 
 
 main =
-    Html.beginnerProgram { model = model, view = view, update = update }
-
-
-view model =
-    Element.layout
-        [ Background.color white
-        , width (px 900)
-        , paddingLeft gutter
-        ]
-    <|
-        column
-            []
-            [ headerArea
-            , mainColumns
-                { left =
-                    [ paragraph
-                        [ paddingLeft 20 ]
-                        [ text "All People:" ]
-                    , paragraph
-                        [ paddingLeft 40
-                        , height (px 180)
-                        , Background.color lightGrey
-                        ]
-                        (List.map viewPeople model.people)
-                    ]
-                , right =
-                    [ inputForm
-                    , paragraph
-                        [ paddingTop 20
-                        ]
-                        [ text "Filtered Results:" ]
-                    , paragraph
-                        [ paddingLeft 18
-                        , Background.color lightGrey
-                        ]
-                        (List.map viewPeople model.filtered)
-                    ]
-                }
-            , footerArea
-            ]
+    Html.beginnerProgram { model = initialModel, view = view, update = update }
 
 
 type alias Model =
@@ -60,8 +21,8 @@ type alias Model =
     }
 
 
-model : Model
-model =
+initialModel : Model
+initialModel =
     { people = [ "Alice", "Anne", "Jane", "Joan", "Joanne", "Zane", "Zoe" ]
     , filtered = [ "Anne", "Jane", "Joanne", "Zane" ]
     , filter = "ne"
@@ -86,6 +47,45 @@ update msg model =
             }
 
 
+view model =
+    Element.layout
+        [ Background.color white
+        , width (px 900)
+        , paddingLeft gutter
+        ]
+    <|
+        column
+            []
+            [ headerArea
+            , mainColumns
+                { left =
+                    [ paragraph
+                        [ paddingLeft 20 ]
+                        [ text "All People:" ]
+                    , paragraph
+                        [ paddingLeft 40
+                        , height (px 200)
+                        , Background.color lightGrey
+                        ]
+                        (List.map viewPeople model.people)
+                    ]
+                , right =
+                    [ inputForm
+                    , paragraph
+                        [ paddingTop 20
+                        ]
+                        [ text "Filtered Results:" ]
+                    , paragraph
+                        [ paddingLeft 18
+                        , Background.color lightGrey
+                        ]
+                        (List.map viewPeople model.filtered)
+                    ]
+                }
+            , footerArea
+            ]
+
+
 mainColumns { left, right } =
     row
         [ borderBottom 1
@@ -107,12 +107,26 @@ inputForm : Element Msg
 inputForm =
     Input.text
         [ Border.color Color.black ]
-        { onChange = Just Filter
-        , text = model.filter
+        { label = Input.labelAbove [] (text "Filter:")
+        , notice =
+            Just
+                (Input.warningBelow
+                    [ Font.color Color.darkBlue
+                    , Font.size 16
+                    ]
+                    (text "Filter is case-sensitive and no filter returns all People.")
+                )
+        , onChange = Just Filter
         , placeholder = Nothing
-        , label = Input.labelAbove [] (text "Filter is case-sensitive:")
-        , notice = Nothing
+        , text = initialModel.filter
         }
+
+
+viewPeople entry =
+    paragraph
+        []
+        [ Element.text entry
+        ]
 
 
 
@@ -193,11 +207,6 @@ elmlogo =
             ]
             { description = "the Elm Language logo", src = "elm_logo.png" }
         ]
-
-
-viewPeople entry =
-    paragraph []
-        [ Element.text entry ]
 
 
 footerArea =

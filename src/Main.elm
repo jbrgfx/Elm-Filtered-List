@@ -71,8 +71,7 @@ view model =
                     ]
                 , right =
                     [ inputForm
-
-                    -- , validateFilter initialModel
+                    , validateFilter model
                     , paragraph
                         [ paddingTop 20
                         ]
@@ -88,18 +87,23 @@ view model =
             ]
 
 
+viewPeople entry =
+    paragraph
+        []
+        [ Element.text entry
+        ]
 
--- validateFilter initialModel =
---     let
---         message =
---             if Filter == "" then
---                 "❌ No filter. Try adding on"
---             else
---                 "✅ Filter is set"
---     in
---     row []
---         -- [ text message |> Debug.log "update" ]
---         [ text message ]
+
+validateFilter model =
+    let
+        message =
+            if model.filterTerm == "" then
+                "❌ No filter. Try adding one!"
+            else
+                "✅ Filter is set."
+    in
+    row []
+        [ text message ]
 
 
 mainColumns { left, right } =
@@ -137,13 +141,6 @@ inputForm =
         , placeholder = Nothing
         , text = initialModel.filterTerm
         }
-
-
-viewPeople entry =
-    paragraph
-        []
-        [ Element.text entry
-        ]
 
 
 

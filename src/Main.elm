@@ -67,7 +67,7 @@ view model =
                     , paragraph
                         [ paddingTop 20
                         ]
-                        [ text "Filtered Results:" ]
+                        [ text "Results:" ]
                     , paragraph
                         [ paddingLeft 18
                         , Background.color lightGrey

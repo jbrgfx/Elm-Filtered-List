@@ -5,7 +5,6 @@ The form displays a result based on a default filter to illustrate to the end-us
 
 View uses [stylish-elephants](http://package.elm-lang.org/packages/mdgriffith/stylish-elephants/4.0.0), the experimental style-elements package.
 
-
 # Getting Stared
 
 You need to have [Elm](http://elm-lang.org/) 0.18 installed on your machine.
@@ -18,3 +17,6 @@ Then generate it from within the new project's root directory using:
 
 And view it:
     localhost:8000/src/Main.elm
+
+You will see:
+![screenshot of the default state](/public/interface.png)

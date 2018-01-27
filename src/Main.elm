@@ -65,11 +65,10 @@ view model =
                     [ row [ padding gutter ] [ inputForm ]
                     , validateFilter model
                     , paragraph
-                        [ paddingTop 20
-                        ]
+                        []
                         [ text "Results:" ]
                     , paragraph
-                        [ paddingLeft 18
+                        [ padding gutter
                         , Background.color lightGrey
                         ]
                         (List.map viewPeople model.filtered)

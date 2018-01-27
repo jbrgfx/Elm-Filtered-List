@@ -19,4 +19,5 @@ And view it:
     localhost:8000/src/Main.elm
 
 You will see:
+
 ![screenshot of the default state](/public/interface.png)

@@ -62,7 +62,7 @@ view model =
                     [ overViewDesc
                     ]
                 , right =
-                    [ inputForm
+                    [ row [ padding gutter ] [ inputForm ]
                     , validateFilter model
                     , paragraph
                         [ paddingTop 20

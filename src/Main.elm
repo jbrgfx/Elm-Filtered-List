@@ -216,10 +216,10 @@ elmlogo =
     row []
         [ image
             [ width (px 180)
-            , height (px 70)
+            , height (px 73)
             , alignLeft
             ]
-            { description = "the Elm Language logo", src = "elm_logo.png" }
+            { description = "the Elm Language logo", src = "elm_logo_small.png" }
         ]
 
 

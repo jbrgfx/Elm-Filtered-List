@@ -59,15 +59,7 @@ view model =
             [ headerArea
             , mainColumns
                 { left =
-                    [ paragraph
-                        [ paddingLeft 20 ]
-                        [ text "All People:" ]
-                    , paragraph
-                        [ paddingLeft 40
-                        , height (px 200)
-                        , Background.color lightGrey
-                        ]
-                        (List.map viewPeople model.people)
+                    [ overViewDesc
                     ]
                 , right =
                     [ inputForm
@@ -85,6 +77,30 @@ view model =
                 }
             , footerArea
             ]
+
+
+overViewDesc =
+    paragraph
+        [ padding gutter
+        , Element.alignTop
+        ]
+        [ Element.el
+            [ alignLeft
+            , Element.spacingXY 4 100
+            , padding 10
+            , Font.size 40
+            , Font.lineHeight 1
+            , Font.color darkBlue
+            , Background.color white
+            ]
+            (text "A")
+        , paragraph
+            [ width (px 300)
+            , Font.color black
+            , Font.size 18
+            ]
+            [ text " simple Elm module that filters a list using text input.  The module has an initial state to demonstrate to the end-user how the text box works and end-user feedback to guide the user in the use use of the module." ]
+        ]
 
 
 viewPeople entry =

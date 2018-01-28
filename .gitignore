@@ -4,3 +4,5 @@ elm-stuff/
 repl-temp-*
 # NotUsed files
 NotUsed/
+# dist
+dist/

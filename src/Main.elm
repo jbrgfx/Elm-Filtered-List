@@ -98,7 +98,7 @@ overViewDesc =
             , Font.color black
             , Font.size 18
             ]
-            [ text " simple Elm module that filters a list using text input.  The module has an initial state to demonstrate to the end-user how the text box works and end-user feedback to guide the user in the use use of the module." ]
+            [ text " simple Elm module that filters a list using text input.  The module has an initial state to demonstrate to the end-user how the text box works and end-user feedback to guide the user in the use of the module." ]
         ]
 
 

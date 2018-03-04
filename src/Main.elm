@@ -59,9 +59,6 @@ view model =
             [ headerArea
             , mainColumns
                 { left =
-                    [ overViewDesc
-                    ]
-                , right =
                     [ row [ padding gutter ] [ inputForm ]
                     , validateFilter model
                     , paragraph
@@ -73,6 +70,8 @@ view model =
                         ]
                         (List.map viewPeople model.filtered)
                     ]
+                , right =
+                    [ overViewDesc ]
                 }
             , footerArea
             ]

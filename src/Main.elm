@@ -144,14 +144,6 @@ inputForm =
         [ Border.color Color.black
         ]
         { label = Input.labelLeft [] (text "Filter:")
-        , notice =
-            Just
-                (Input.warningBelow
-                    [ Font.color Color.darkBlue
-                    , Font.size 16
-                    ]
-                    (text "Filter is case-sensitive and no filter returns all People.")
-                )
         , onChange = Just Filter
         , placeholder = Nothing
         , text = initialModel.filterTerm
@@ -222,7 +214,7 @@ headerArea =
             , alignBottom
             ]
             { url = "http://package.elm-lang.org/packages/mdgriffith/stylish-elephants/4.0.0"
-            , label = Element.text "stylish-elephants 4.0.0: package docs"
+            , label = Element.text "stylish-elephants: package docs"
             }
         ]
 
@@ -234,7 +226,9 @@ elmlogo =
             , height (px 73)
             , alignLeft
             ]
-            { description = "the Elm Language logo", src = "elm_logo_small.png" }
+            { description = "the Elm Language logo"
+            , src = "elm_logo_small.png"
+            }
         ]
 
 

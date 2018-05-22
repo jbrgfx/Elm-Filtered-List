@@ -87,7 +87,8 @@ overViewDesc =
             , Element.spacingXY 4 100
             , padding 10
             , Font.size 40
-            , Font.lineHeight 1
+
+            -- , Font.lineHeight 1 -- no longer supported
             , Font.color darkBlue
             , Background.color white
             ]
